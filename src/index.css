@@ -17,3 +17,18 @@ body {
     background-repeat: no-repeat;
     background-position: center;
 }
+
+.customScrollbar::-webkit-scrollbar {
+    width: 5px;
+    border-radius: 5px;
+}
+
+.customScrollbar::-webkit-scrollbar-track {
+    background: #13151f;
+    border-radius: 5px;
+}
+
+.customScrollbar::-webkit-scrollbar-thumb {
+    background: #38ce9e;
+    border-radius: 5px;
+}

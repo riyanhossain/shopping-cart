@@ -1,9 +1,11 @@
+import { useState } from "react";
 import useStore from "../app/store";
 import { data } from "../data/data";
 import isItemExistOnCart from "../lib/isItemExistOnCart";
 
 const RightGrid: React.FC = () => {
-    const { addToCart, cart } = useStore((state) => state);
+    const [filter, setFilter] = useState<string>("Foods");
+    const { addToCart } = useStore((state) => state);
 
     return (
         <div>
@@ -25,15 +27,41 @@ const RightGrid: React.FC = () => {
                 {/* categories */}
                 <div className="flex items-center justify-between mt-3">
                     <div className=" text-[10px] leading-[13px] font-gilroy font-extrabold flex gap-x-[34px]">
-                        <button className="text-[#38CD9E] px-2 pb-1.5 border-b-[1.13px] border-[#4DD6AA]">Foods</button>
+                        <button
+                            className={`px-2 pb-1.5 border-b-[1.13px]  ${
+                                filter === "Foods" ? "text-[#38CD9E] border-[#4DD6AA]" : "text-[#FFFFFF63] border-transparent"
+                            }`}
+                            onClick={() => setFilter("Foods")}
+                        >
+                            Foods
+                        </button>
 
-                        <button className="text-[#FFFFFF63] px-2 pb-1.5 border-b-[1.13px] border-transparent">Drinks</button>
+                        <button
+                            className={`px-2 pb-1.5 border-b-[1.13px]  ${
+                                filter === "Drinks" ? "text-[#38CD9E] border-[#4DD6AA]" : "text-[#FFFFFF63] border-transparent"
+                            }`}
+                            onClick={() => setFilter("Drinks")}
+                        >
+                            Drinks
+                        </button>
 
-                        <button className="text-[#FFFFFF63] px-2 pb-1.5 border-b-[1.13px] border-transparent">Electric</button>
+                        <button
+                            className={`px-2 pb-1.5 border-b-[1.13px]  ${
+                                filter === "Electric" ? "text-[#38CD9E] border-[#4DD6AA]" : "text-[#FFFFFF63] border-transparent"
+                            }`}
+                            onClick={() => setFilter("Electric")}
+                        >
+                            Electric
+                        </button>
 
-                        <button className="text-[#FFFFFF63] px-2 pb-1.5 border-b-[1.13px] border-transparent">Others</button>
-
-                        <button className="text-[#FFFFFF63] px-2 pb-1.5 border-b-[1.13px] border-transparent">Others</button>
+                        <button
+                            className={`px-2 pb-1.5 border-b-[1.13px]  ${
+                                filter === "Others" ? "text-[#38CD9E] border-[#4DD6AA]" : "text-[#FFFFFF63] border-transparent"
+                            }`}
+                            onClick={() => setFilter("Others")}
+                        >
+                            Others
+                        </button>
                     </div>
 
                     {/* filter icon */}
@@ -49,13 +77,13 @@ const RightGrid: React.FC = () => {
                 </div>
 
                 {/* items */}
-                <div className="mt-[26px] grid grid-cols-5 gap-x-2 gap-y-4">
+                <div className="grid grid-cols-5 auto-rows-max gap-x-2 gap-y-4 h-[550px] overflow-y-auto pt-[26px] customScrollbar">
                     {data
-                        .filter((item) => item.category === "Foods")
+                        .filter((item) => item.category === filter)
                         .map((item) => (
                             <div
                                 key={item.id}
-                                className={`border-[0.92px]  rounded-[1.94px] px-[5px] py-[3px] bg-[rgba(217,217,217,0.04)] ${
+                                className={`border-[0.92px]  rounded-[1.94px] px-[5px] py-[3px] bg-[rgba(217,217,217,0.04)] h-[106px] ${
                                     isItemExistOnCart({
                                         ...item,
                                         quantity: 0,
