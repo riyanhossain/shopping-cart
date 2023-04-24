@@ -15,4 +15,5 @@ export interface IStore {
     history: IItem[];
     addToCart: (item: IItem) => void;
     removeFromCart: (item: IItem) => void;
+    removeAllFromCart: (item: IItem) => void;
 }

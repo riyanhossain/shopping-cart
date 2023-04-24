@@ -1,10 +1,10 @@
 import useStore from "../app/store";
 import { data } from "../data/data";
+import isItemExistOnCart from "../lib/isItemExistOnCart";
 
 const RightGrid: React.FC = () => {
     const { addToCart, cart } = useStore((state) => state);
 
-    console.log(cart);
     return (
         <div>
             <h1 className="text-[#9EA4AF] text-[32.04px] leading-[39.25px] font-gilroy font-extrabold">Ursu SHOP</h1>
@@ -55,10 +55,26 @@ const RightGrid: React.FC = () => {
                         .map((item) => (
                             <div
                                 key={item.id}
-                                className="border-[0.92px] border-[#6D6D6D]  rounded-[1.94px] px-[5px] py-[3px] bg-[rgba(217,217,217,0.04)]"
+                                className={`border-[0.92px]  rounded-[1.94px] px-[5px] py-[3px] bg-[rgba(217,217,217,0.04)] ${
+                                    isItemExistOnCart({
+                                        ...item,
+                                        quantity: 0,
+                                    })
+                                        ? "border-[#FBCE02AD]"
+                                        : "border-[#6D6D6D]"
+                                }`}
                             >
                                 <div className=" flex justify-center relative ">
-                                    <div className="absolute -top-[10px] px-[7.5px] py-[2.5px]  text-[#323232] font-semibold text-[5.44px] leading-[8.17px] text-center bg-[#9E9E9E] rounded-[1.29px]">
+                                    <div
+                                        className={`absolute -top-[10px] px-[7.5px] py-[2.5px]   font-semibold text-[5.44px] leading-[8.17px] text-center  rounded-[1.29px] ${
+                                            isItemExistOnCart({
+                                                ...item,
+                                                quantity: 0,
+                                            })
+                                                ? "bg-[#FBCE02] text-[#111B33]"
+                                                : "bg-[#9E9E9E] text-[#323232]"
+                                        }`}
+                                    >
                                         {item.name}
                                     </div>
                                 </div>
@@ -67,9 +83,25 @@ const RightGrid: React.FC = () => {
                                     <img src={item.image} alt="pineapple" className="w-[71.23px] h-[64.42px]" />
                                 </div>
 
-                                <div className="mt-[5px] bg-[#9E9E9E] flex p-[1.22px] rounded-[1.94px]">
+                                <div
+                                    className={`mt-[5px] flex p-[1.22px] rounded-[1.94px] ${
+                                        isItemExistOnCart({
+                                            ...item,
+                                            quantity: 0,
+                                        })
+                                            ? "bg-[#FBCE02]"
+                                            : "bg-[#9E9E9E]"
+                                    }`}
+                                >
                                     <button
-                                        className="text-[4.46px] leading-[6.7px] font-poppins font-semibold italic px-1 py-[2.5px] bg-[#323232] rounded-[1.94px] text-[#9E9E9E]"
+                                        className={`text-[4.46px] leading-[6.7px] font-poppins font-semibold italic px-1 py-[2.5px]  rounded-[1.94px]  ${
+                                            isItemExistOnCart({
+                                                ...item,
+                                                quantity: 0,
+                                            })
+                                                ? "text-[#FFFFFFE0] bg-[#0C111B]"
+                                                : "text-[#9E9E9E] bg-[#323232]"
+                                        }`}
                                         onClick={() =>
                                             addToCart({
                                                 ...item,
@@ -79,7 +111,16 @@ const RightGrid: React.FC = () => {
                                     >
                                         Add To Cart
                                     </button>
-                                    <div className="text-[#323232] font-gilroy font-extrabold text-[7.14px] leading-[8.75px] flex  items-center  mx-auto">
+                                    <div
+                                        className={` font-gilroy font-extrabold text-[7.14px] leading-[8.75px] flex  items-center  mx-auto ${
+                                            isItemExistOnCart({
+                                                ...item,
+                                                quantity: 0,
+                                            })
+                                                ? "text-[#0C111B] "
+                                                : "text-[#323232]"
+                                        }`}
+                                    >
                                         ${item.price}
                                     </div>
                                 </div>
@@ -92,27 +133,3 @@ const RightGrid: React.FC = () => {
 };
 
 export default RightGrid;
-
-// {
-//     /* item */
-// }
-// <div className="border-[0.92px] border-[#FBCE02AD]  rounded-[1.94px] px-[5px] py-[3px] bg-[rgba(217,217,217,0.04)]">
-//     <div className=" flex justify-center relative ">
-//         <div className="absolute -top-[10px] px-[7.5px] py-[2.5px]  text-[#111B33] font-semibold text-[5.44px] leading-[8.17px] text-center bg-[#FBCE02] rounded-[1.29px]">
-//             pineapple
-//         </div>
-//     </div>
-
-//     <div className="flex justify-center mt-[14px]">
-//         <img src={pineapple} alt="pineapple" className="w-[71.23px] h-[64.42px]" />
-//     </div>
-
-//     <div className="mt-[5px] bg-[#FBCE02] flex p-[1.22px] rounded-[1.94px]">
-//         <button className="text-[4.46px] leading-[6.7px] font-poppins font-semibold italic px-1 py-[2.5px] bg-[#0C111B] rounded-[1.94px] text-[#FFFFFFE0]">
-//             Add To Cart
-//         </button>
-//         <div className="text-[#0C111B] font-gilroy font-extrabold text-[7.14px] leading-[8.75px] flex  items-center  mx-auto">
-//             $566
-//         </div>
-//     </div>
-// </div>;

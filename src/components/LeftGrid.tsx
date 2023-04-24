@@ -1,7 +1,7 @@
 import useStore from "../app/store";
 
 const LeftGrid: React.FC = () => {
-    const { bank_acc, cash, cart, cart_total, removeFromCart, addToCart } = useStore((state) => state);
+    const { bank_acc, cash, cart, cart_total, removeAllFromCart, removeFromCart, addToCart } = useStore((state) => state);
 
     //
     return (
@@ -111,7 +111,10 @@ const LeftGrid: React.FC = () => {
 
                             <div className="flex items-center gap-x-4">
                                 <div className="flex items-center gap-x-2">
-                                    <button className="w-[14.59px] h-[14.59px] rounded-full bg-[#35FF931F] flex items-center justify-center" onClick={() => addToCart(item)}>
+                                    <button
+                                        className="w-[14.59px] h-[14.59px] rounded-full bg-[#35FF931F] flex items-center justify-center"
+                                        onClick={() => addToCart(item)}
+                                    >
                                         <svg width="8" height="6" viewBox="0 0 8 6" fill="none" xmlns="http://www.w3.org/2000/svg">
                                             <path
                                                 fillRule="evenodd"
@@ -124,7 +127,10 @@ const LeftGrid: React.FC = () => {
 
                                     <p className="font-poppins font-semibold text-[15px] leading-[22px] text-[#C9C9C9]">{item.quantity}x</p>
 
-                                    <button className="w-[14.59px] h-[14.59px] rounded-full bg-[#FF35591F] flex items-center justify-center">
+                                    <button
+                                        className="w-[14.59px] h-[14.59px] rounded-full bg-[#FF35591F] flex items-center justify-center"
+                                        onClick={() => removeFromCart(item)}
+                                    >
                                         <svg width="8" height="5" viewBox="0 0 8 5" fill="none" xmlns="http://www.w3.org/2000/svg">
                                             <path
                                                 fillRule="evenodd"
@@ -137,7 +143,7 @@ const LeftGrid: React.FC = () => {
                                 </div>
 
                                 {/* delete button */}
-                                <button onClick={() => removeFromCart(item)}>
+                                <button onClick={() => removeAllFromCart(item)}>
                                     <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <path
                                             d="M1.5477 3.22554H2.31544C1.99875 3.57936 1.80091 4.04122 1.80091 4.55237V11.2115C1.80091 12.3162 2.69897 13.2142 3.80297 13.2142H10.4614C11.5661 13.2142 12.4642 12.3162 12.4642 11.2122V4.55237C12.4642 4.04122 12.2657 3.57936 11.9496 3.22487H12.7174C12.9037 3.22487 13.055 3.07361 13.055 2.88725C13.055 2.70089 12.9037 2.54963 12.7174 2.54963H8.92596C8.76728 1.70357 8.02452 1.06007 7.13254 1.06007C6.24056 1.06007 5.4978 1.70357 5.33913 2.55031H1.5477C1.36133 2.55031 1.21008 2.70156 1.21008 2.88793C1.21008 3.07429 1.36066 3.22554 1.5477 3.22554ZM11.7889 4.55237V11.2115C11.7889 11.9428 11.1934 12.5383 10.4614 12.5383H3.80297C3.07102 12.5383 2.47547 11.9428 2.47547 11.2115V4.55237C2.47547 3.82042 3.07102 3.22487 3.80297 3.22487H10.4621C11.1941 3.22554 11.7889 3.82042 11.7889 4.55237ZM7.13254 1.73531C7.65112 1.73531 8.09002 2.079 8.23452 2.55031H6.03056C6.17506 2.079 6.61396 1.73531 7.13254 1.73531Z"
