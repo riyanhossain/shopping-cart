@@ -97,7 +97,7 @@ const RightGrid: React.FC = () => {
                 </div>
 
                 {/* items */}
-                <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 auto-rows-max gap-x-2 gap-y-4 h-[550px] overflow-y-auto pt-[26px] customScrollbar">
+                <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 auto-rows-max gap-x-2 gap-y-4 h-[50vh] overflow-y-auto pt-[26px] customScrollbar">
                     {items
                         .filter((item) => item.category === filter)
                         .map((item) => (

@@ -34,7 +34,7 @@ const LeftGrid: React.FC = () => {
 
                 <p className="py-[14px] text-base leading-[20px] font-gilroy font-extrabold text-[#239D7F]">Your Cart</p>
                 {/* cart container */}
-                <div className="space-y-2.5 pb-[18px] border-b-[1.2px] border-[#FFFFFF14] customScrollbar overflow-y-auto h-80">
+                <div className="space-y-2.5 pb-[18px] border-b-[1.2px] border-[#FFFFFF14] customScrollbar overflow-y-auto h-[15vh]">
                     {cart.map((item, index) => (
                         <div key={index} className="p-1.5 flex justify-between items-center bg-[#38CD9E1F] rounded-[3.65px]">
                             <div className="flex items-center">
