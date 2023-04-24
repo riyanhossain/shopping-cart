@@ -8,7 +8,7 @@ const LeftGrid: React.FC = () => {
         <div className="relative z-10">
             <h1 className="text-[#9EA4AF] text-[32.04px] leading-[39.25px] font-gilroy font-extrabold">Shopping Cart</h1>
             <p className="font-poppins font-medium text-[15px] leading-[23px] opacity-[0.36] text-white">Lorem Ipsum is simply.</p>
-            <div className="mt-[18px] border-[1.5px] border-[#FFFFFF12] rounded-[7.29px] px-[26px] py-[20px]">
+            <div className="mt-[18px] border-[1.5px] border-[#FFFFFF12] rounded-[7.29px] px-3 xl:px-[26px] py-[20px]">
                 <p className="text-[#239D7F] font-gilroy font-extrabold text-base leading-[20px]">Financial Information</p>
 
                 {/* money info container */}

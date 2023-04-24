@@ -32,7 +32,7 @@ const RightGrid: React.FC = () => {
                 Lorem Ipsum is simply dummy text of the print.
             </p>
 
-            <div className="mt-[18px] border-[1.5px] border-[#FFFFFF12] rounded-[7.29px] px-[40px] py-[25px]">
+            <div className="mt-[18px] border-[1.5px] border-[#FFFFFF12] rounded-[7.29px] px-5 xl:px-[40px] py-[25px]">
                 {/* search */}
                 <div>
                     <input
@@ -46,7 +46,7 @@ const RightGrid: React.FC = () => {
 
                 {/* categories */}
                 <div className="flex items-center justify-between mt-3">
-                    <div className=" text-[10px] leading-[13px] font-gilroy font-extrabold flex gap-x-[34px]">
+                    <div className=" text-[10px] leading-[13px] font-gilroy font-extrabold flex gap-x-3 xl:gap-x-[34px]">
                         <button
                             className={`px-2 pb-1.5 border-b-[1.13px]  ${
                                 filter === "Foods" ? "text-[#38CD9E] border-[#4DD6AA]" : "text-[#FFFFFF63] border-transparent"
@@ -97,7 +97,7 @@ const RightGrid: React.FC = () => {
                 </div>
 
                 {/* items */}
-                <div className="grid grid-cols-5 auto-rows-max gap-x-2 gap-y-4 h-[550px] overflow-y-auto pt-[26px] customScrollbar">
+                <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 auto-rows-max gap-x-2 gap-y-4 h-[550px] overflow-y-auto pt-[26px] customScrollbar">
                     {items
                         .filter((item) => item.category === filter)
                         .map((item) => (

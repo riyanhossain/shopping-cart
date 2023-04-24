@@ -11,13 +11,6 @@
     font-style: normal;
 }
 
-body {
-    background: url("./assets/bg.png");
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-}
-
 .customScrollbar::-webkit-scrollbar {
     width: 5px;
     border-radius: 5px;
