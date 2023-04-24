@@ -1,11 +1,29 @@
-import { useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import useStore from "../app/store";
 import { data } from "../data/data";
 import isItemExistOnCart from "../lib/isItemExistOnCart";
 
 const RightGrid: React.FC = () => {
     const [filter, setFilter] = useState<string>("Foods");
+    const [search, setSearch] = useState<string>("");
+    const [items, setItems] = useState(data);
     const { addToCart } = useStore((state) => state);
+
+    const handleSearch = useCallback(() => {
+        if (search) {
+            setItems(
+                data.filter((item) => {
+                    return item.name.toLowerCase().includes(search.toLowerCase()) && item.category === filter;
+                })
+            );
+        } else {
+            setItems(data);
+        }
+    }, [search, filter]);
+
+    useEffect(() => {
+        handleSearch();
+    }, [search, filter, handleSearch]);
 
     return (
         <div>
@@ -21,6 +39,8 @@ const RightGrid: React.FC = () => {
                         type="search"
                         className="py-[7px] px-[14px] w-full outline-none bg-[#FFFFFF0A] rounded-[3.65px] placeholder:text-[#FFFFFF45] font-poppins text-sm leading-[22px] text-[#9EA4AF] appearance-none"
                         placeholder="Search"
+                        value={search}
+                        onChange={(e) => setSearch(e.target.value)}
                     />
                 </div>
 
@@ -78,7 +98,7 @@ const RightGrid: React.FC = () => {
 
                 {/* items */}
                 <div className="grid grid-cols-5 auto-rows-max gap-x-2 gap-y-4 h-[550px] overflow-y-auto pt-[26px] customScrollbar">
-                    {data
+                    {items
                         .filter((item) => item.category === filter)
                         .map((item) => (
                             <div
