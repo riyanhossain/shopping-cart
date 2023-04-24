@@ -29,7 +29,7 @@ const App: React.FC = () => {
                 {/* grid */}
                 <div className="grid grid-cols-[369.49px_1fr] gap-x-[56px] mt-[56px]">
                     {/* left */}
-                    <div>
+                    <div className="relative z-10">
                         <h1 className="text-[#9EA4AF] text-[32.04px] leading-[39.25px] font-gilroy font-extrabold">Shopping Cart</h1>
                         <p className="font-poppins font-medium text-[15px] leading-[23px] opacity-[0.36] text-white">Lorem Ipsum is simply.</p>
                         <div className="mt-[18px] border-[1.5px] border-[#FFFFFF12] rounded-[7.29px] px-[26px] py-[20px]">
@@ -680,22 +680,626 @@ const App: React.FC = () => {
 
                             <p className="py-[12px] text-base leading-[20px] font-gilroy font-extrabold text-[#239D7F]">Total Price</p>
 
-                            <div>
+                            <div className="flex items-center gap-x-3">
                                 <div className="py-[7px] px-[22px] bg-[#35FF931F] rounded-[3.65px] w-[128.83px]">
                                     <h5 className="text-lg leading-[23px] font-gilroy font-extrabold text-[#239D7F]">$300.000</h5>
+                                </div>
+
+                                <div className="font-poppins font-bold text-[7px] leading-[11px] text-[#FFFFFF70]">
+                                    <p className="opacity-[0.88]">
+                                        <span className="text-[#FF3559]">-$566</span> (Item Deleted)
+                                    </p>
+                                    <p className="opacity-[0.27]">
+                                        <span className="text-[#35FF93]">+$566</span> (Item Added)
+                                    </p>
+                                    <p className="opacity-[0.06]">
+                                        <span className="text-[#35FF93]">+$566</span> (Item Added)
+                                    </p>
                                 </div>
                             </div>
 
                             <div className="mt-[26px] flex items-center gap-x-3 font-gilroy text-[13.58px] leading-[16.64px] font-extrabold">
-                                <button className="py-2.5 w-full rounded-[3.65px] bg-[#FBCE02] text-[#534401]">Pay by Card</button>
+                                <button className="py-2.5 w-full rounded-[3.65px] bg-[#FBCE02] text-[#534401]  hover:bg-opacity-80">
+                                    Pay by Card
+                                </button>
 
-                                <button className="py-2.5 w-full rounded-[3.65px] bg-[#35FF93] text-[#187041]">Pay by Bank</button>
+                                <button className="py-2.5 w-full rounded-[3.65px] bg-[#35FF93] text-[#187041]  hover:bg-opacity-80">
+                                    Pay by Bank
+                                </button>
                             </div>
                         </div>
                     </div>
 
                     {/* right */}
-                    <div></div>
+                    <div>
+                        <h1 className="text-[#9EA4AF] text-[32.04px] leading-[39.25px] font-gilroy font-extrabold">Ursu SHOP</h1>
+                        <p className="font-poppins font-medium text-[15px] leading-[23px] opacity-[0.36] text-white">
+                            Lorem Ipsum is simply dummy text of the print.
+                        </p>
+
+                        <div className="mt-[18px] border-[1.5px] border-[#FFFFFF12] rounded-[7.29px] px-[40px] py-[25px]">
+                            {/* search */}
+                            <div>
+                                <input
+                                    type="search"
+                                    className="py-[7px] px-[14px] w-full outline-none bg-[#FFFFFF0A] rounded-[3.65px] placeholder:text-[#FFFFFF45] font-poppins text-sm leading-[22px] text-[#9EA4AF] appearance-none"
+                                    placeholder="Search"
+                                />
+                            </div>
+
+                            {/* categories */}
+                            <div className="flex items-center justify-between mt-3">
+                                <div className=" text-[10px] leading-[13px] font-gilroy font-extrabold flex gap-x-[34px]">
+                                    <button className="text-[#38CD9E] px-2 pb-1.5 border-b-[1.13px] border-[#4DD6AA]">Foods</button>
+
+                                    <button className="text-[#FFFFFF63] px-2 pb-1.5 border-b-[1.13px] border-transparent">Drinks</button>
+
+                                    <button className="text-[#FFFFFF63] px-2 pb-1.5 border-b-[1.13px] border-transparent">Electric</button>
+
+                                    <button className="text-[#FFFFFF63] px-2 pb-1.5 border-b-[1.13px] border-transparent">Others</button>
+
+                                    <button className="text-[#FFFFFF63] px-2 pb-1.5 border-b-[1.13px] border-transparent">Others</button>
+                                </div>
+
+                                {/* filter icon */}
+                                <div>
+                                    <svg width="16" height="11" viewBox="0 0 16 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M6.17781 10.3415H9.41892V8.72097H6.17781V10.3415ZM0.505859 0.618195V2.23875H15.0909V0.618195H0.505859ZM2.93669 6.29014H12.66V4.66958H2.93669V6.29014Z"
+                                            fill="white"
+                                            fill-opacity="0.37"
+                                        />
+                                    </svg>
+                                </div>
+                            </div>
+
+                            {/* items */}
+                            <div className="mt-[26px] grid grid-cols-5 gap-x-2 gap-y-4">
+                                {/* row 1 */}
+                                {/* item */}
+                                <div className="border-[0.92px] border-[#FBCE02AD]  rounded-[1.94px] px-[5px] py-[3px] bg-[rgba(217,217,217,0.04)]">
+                                    <div className=" flex justify-center relative ">
+                                        <div className="absolute -top-[10px] px-[7.5px] py-[2.5px]  text-[#111B33] font-semibold text-[5.44px] leading-[8.17px] text-center bg-[#FBCE02] rounded-[1.29px]">
+                                            pineapple
+                                        </div>
+                                    </div>
+
+                                    <div className="flex justify-center mt-[14px]">
+                                        <img src={pineapple} alt="pineapple" className="w-[71.23px] h-[64.42px]" />
+                                    </div>
+
+                                    <div className="mt-[5px] bg-[#FBCE02] flex p-[1.22px] rounded-[1.94px]">
+                                        <button className="text-[4.46px] leading-[6.7px] font-poppins font-semibold italic px-1 py-[2.5px] bg-[#0C111B] rounded-[1.94px] text-[#FFFFFFE0]">
+                                            Add To Cart
+                                        </button>
+                                        <div className="text-[#0C111B] font-gilroy font-extrabold text-[7.14px] leading-[8.75px] flex  items-center  mx-auto">
+                                            $566
+                                        </div>
+                                    </div>
+                                </div>
+
+                                {/* item */}
+                                <div className="border-[0.92px] border-[#6D6D6D]  rounded-[1.94px] px-[5px] py-[3px] bg-[rgba(217,217,217,0.04)]">
+                                    <div className=" flex justify-center relative ">
+                                        <div className="absolute -top-[10px] px-[7.5px] py-[2.5px]  text-[#323232] font-semibold text-[5.44px] leading-[8.17px] text-center bg-[#9E9E9E] rounded-[1.29px]">
+                                            pineapple
+                                        </div>
+                                    </div>
+
+                                    <div className="flex justify-center mt-[14px]">
+                                        <img src={pineapple} alt="pineapple" className="w-[71.23px] h-[64.42px]" />
+                                    </div>
+
+                                    <div className="mt-[5px] bg-[#9E9E9E] flex p-[1.22px] rounded-[1.94px]">
+                                        <button className="text-[4.46px] leading-[6.7px] font-poppins font-semibold italic px-1 py-[2.5px] bg-[#323232] rounded-[1.94px] text-[#9E9E9E]">
+                                            Add To Cart
+                                        </button>
+                                        <div className="text-[#323232] font-gilroy font-extrabold text-[7.14px] leading-[8.75px] flex  items-center  mx-auto">
+                                            $566
+                                        </div>
+                                    </div>
+                                </div>
+
+                                {/* item */}
+                                <div className="border-[0.92px] border-[#6D6D6D]  rounded-[1.94px] px-[5px] py-[3px] bg-[rgba(217,217,217,0.04)]">
+                                    <div className=" flex justify-center relative ">
+                                        <div className="absolute -top-[10px] px-[7.5px] py-[2.5px]  text-[#323232] font-semibold text-[5.44px] leading-[8.17px] text-center bg-[#9E9E9E] rounded-[1.29px]">
+                                            pineapple
+                                        </div>
+                                    </div>
+
+                                    <div className="flex justify-center mt-[14px]">
+                                        <img src={pineapple} alt="pineapple" className="w-[71.23px] h-[64.42px]" />
+                                    </div>
+
+                                    <div className="mt-[5px] bg-[#9E9E9E] flex p-[1.22px] rounded-[1.94px]">
+                                        <button className="text-[4.46px] leading-[6.7px] font-poppins font-semibold italic px-1 py-[2.5px] bg-[#323232] rounded-[1.94px] text-[#9E9E9E]">
+                                            Add To Cart
+                                        </button>
+                                        <div className="text-[#323232] font-gilroy font-extrabold text-[7.14px] leading-[8.75px] flex  items-center  mx-auto">
+                                            $566
+                                        </div>
+                                    </div>
+                                </div>
+
+                                {/* item */}
+                                <div className="border-[0.92px] border-[#6D6D6D]  rounded-[1.94px] px-[5px] py-[3px] bg-[rgba(217,217,217,0.04)]">
+                                    <div className=" flex justify-center relative ">
+                                        <div className="absolute -top-[10px] px-[7.5px] py-[2.5px]  text-[#323232] font-semibold text-[5.44px] leading-[8.17px] text-center bg-[#9E9E9E] rounded-[1.29px]">
+                                            pineapple
+                                        </div>
+                                    </div>
+
+                                    <div className="flex justify-center mt-[14px]">
+                                        <img src={pineapple} alt="pineapple" className="w-[71.23px] h-[64.42px]" />
+                                    </div>
+
+                                    <div className="mt-[5px] bg-[#9E9E9E] flex p-[1.22px] rounded-[1.94px]">
+                                        <button className="text-[4.46px] leading-[6.7px] font-poppins font-semibold italic px-1 py-[2.5px] bg-[#323232] rounded-[1.94px] text-[#9E9E9E]">
+                                            Add To Cart
+                                        </button>
+                                        <div className="text-[#323232] font-gilroy font-extrabold text-[7.14px] leading-[8.75px] flex  items-center  mx-auto">
+                                            $566
+                                        </div>
+                                    </div>
+                                </div>
+
+                                {/* item */}
+                                <div className="border-[0.92px] border-[#6D6D6D]  rounded-[1.94px] px-[5px] py-[3px] bg-[rgba(217,217,217,0.04)]">
+                                    <div className=" flex justify-center relative ">
+                                        <div className="absolute -top-[10px] px-[7.5px] py-[2.5px]  text-[#323232] font-semibold text-[5.44px] leading-[8.17px] text-center bg-[#9E9E9E] rounded-[1.29px]">
+                                            pineapple
+                                        </div>
+                                    </div>
+
+                                    <div className="flex justify-center mt-[14px]">
+                                        <img src={pineapple} alt="pineapple" className="w-[71.23px] h-[64.42px]" />
+                                    </div>
+
+                                    <div className="mt-[5px] bg-[#9E9E9E] flex p-[1.22px] rounded-[1.94px]">
+                                        <button className="text-[4.46px] leading-[6.7px] font-poppins font-semibold italic px-1 py-[2.5px] bg-[#323232] rounded-[1.94px] text-[#9E9E9E]">
+                                            Add To Cart
+                                        </button>
+                                        <div className="text-[#323232] font-gilroy font-extrabold text-[7.14px] leading-[8.75px] flex  items-center  mx-auto">
+                                            $566
+                                        </div>
+                                    </div>
+                                </div>
+
+                                {/* row-2 */}
+                                {/* item */}
+                                <div className="border-[0.92px] border-[#6D6D6D]  rounded-[1.94px] px-[5px] py-[3px] bg-[rgba(217,217,217,0.04)]">
+                                    <div className=" flex justify-center relative ">
+                                        <div className="absolute -top-[10px] px-[7.5px] py-[2.5px]  text-[#323232] font-semibold text-[5.44px] leading-[8.17px] text-center bg-[#9E9E9E] rounded-[1.29px]">
+                                            pineapple
+                                        </div>
+                                    </div>
+
+                                    <div className="flex justify-center mt-[14px]">
+                                        <img src={pineapple} alt="pineapple" className="w-[71.23px] h-[64.42px]" />
+                                    </div>
+
+                                    <div className="mt-[5px] bg-[#9E9E9E] flex p-[1.22px] rounded-[1.94px]">
+                                        <button className="text-[4.46px] leading-[6.7px] font-poppins font-semibold italic px-1 py-[2.5px] bg-[#323232] rounded-[1.94px] text-[#9E9E9E]">
+                                            Add To Cart
+                                        </button>
+                                        <div className="text-[#323232] font-gilroy font-extrabold text-[7.14px] leading-[8.75px] flex  items-center  mx-auto">
+                                            $566
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div className="border-[0.92px] border-[#6D6D6D]  rounded-[1.94px] px-[5px] py-[3px] bg-[rgba(217,217,217,0.04)]">
+                                    <div className=" flex justify-center relative ">
+                                        <div className="absolute -top-[10px] px-[7.5px] py-[2.5px]  text-[#323232] font-semibold text-[5.44px] leading-[8.17px] text-center bg-[#9E9E9E] rounded-[1.29px]">
+                                            pineapple
+                                        </div>
+                                    </div>
+
+                                    <div className="flex justify-center mt-[14px]">
+                                        <img src={pineapple} alt="pineapple" className="w-[71.23px] h-[64.42px]" />
+                                    </div>
+
+                                    <div className="mt-[5px] bg-[#9E9E9E] flex p-[1.22px] rounded-[1.94px]">
+                                        <button className="text-[4.46px] leading-[6.7px] font-poppins font-semibold italic px-1 py-[2.5px] bg-[#323232] rounded-[1.94px] text-[#9E9E9E]">
+                                            Add To Cart
+                                        </button>
+                                        <div className="text-[#323232] font-gilroy font-extrabold text-[7.14px] leading-[8.75px] flex  items-center  mx-auto">
+                                            $566
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div className="border-[0.92px] border-[#6D6D6D]  rounded-[1.94px] px-[5px] py-[3px] bg-[rgba(217,217,217,0.04)]">
+                                    <div className=" flex justify-center relative ">
+                                        <div className="absolute -top-[10px] px-[7.5px] py-[2.5px]  text-[#323232] font-semibold text-[5.44px] leading-[8.17px] text-center bg-[#9E9E9E] rounded-[1.29px]">
+                                            pineapple
+                                        </div>
+                                    </div>
+
+                                    <div className="flex justify-center mt-[14px]">
+                                        <img src={pineapple} alt="pineapple" className="w-[71.23px] h-[64.42px]" />
+                                    </div>
+
+                                    <div className="mt-[5px] bg-[#9E9E9E] flex p-[1.22px] rounded-[1.94px]">
+                                        <button className="text-[4.46px] leading-[6.7px] font-poppins font-semibold italic px-1 py-[2.5px] bg-[#323232] rounded-[1.94px] text-[#9E9E9E]">
+                                            Add To Cart
+                                        </button>
+                                        <div className="text-[#323232] font-gilroy font-extrabold text-[7.14px] leading-[8.75px] flex  items-center  mx-auto">
+                                            $566
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div className="border-[0.92px] border-[#6D6D6D]  rounded-[1.94px] px-[5px] py-[3px] bg-[rgba(217,217,217,0.04)]">
+                                    <div className=" flex justify-center relative ">
+                                        <div className="absolute -top-[10px] px-[7.5px] py-[2.5px]  text-[#323232] font-semibold text-[5.44px] leading-[8.17px] text-center bg-[#9E9E9E] rounded-[1.29px]">
+                                            pineapple
+                                        </div>
+                                    </div>
+
+                                    <div className="flex justify-center mt-[14px]">
+                                        <img src={pineapple} alt="pineapple" className="w-[71.23px] h-[64.42px]" />
+                                    </div>
+
+                                    <div className="mt-[5px] bg-[#9E9E9E] flex p-[1.22px] rounded-[1.94px]">
+                                        <button className="text-[4.46px] leading-[6.7px] font-poppins font-semibold italic px-1 py-[2.5px] bg-[#323232] rounded-[1.94px] text-[#9E9E9E]">
+                                            Add To Cart
+                                        </button>
+                                        <div className="text-[#323232] font-gilroy font-extrabold text-[7.14px] leading-[8.75px] flex  items-center  mx-auto">
+                                            $566
+                                        </div>
+                                    </div>
+                                </div>
+
+                                {/* item */}
+                                <div className="border-[0.92px] border-[#6D6D6D]  rounded-[1.94px] px-[5px] py-[3px] bg-[rgba(217,217,217,0.04)]">
+                                    <div className=" flex justify-center relative ">
+                                        <div className="absolute -top-[10px] px-[7.5px] py-[2.5px]  text-[#323232] font-semibold text-[5.44px] leading-[8.17px] text-center bg-[#9E9E9E] rounded-[1.29px]">
+                                            pineapple
+                                        </div>
+                                    </div>
+
+                                    <div className="flex justify-center mt-[14px]">
+                                        <img src={pineapple} alt="pineapple" className="w-[71.23px] h-[64.42px]" />
+                                    </div>
+
+                                    <div className="mt-[5px] bg-[#9E9E9E] flex p-[1.22px] rounded-[1.94px]">
+                                        <button className="text-[4.46px] leading-[6.7px] font-poppins font-semibold italic px-1 py-[2.5px] bg-[#323232] rounded-[1.94px] text-[#9E9E9E]">
+                                            Add To Cart
+                                        </button>
+                                        <div className="text-[#323232] font-gilroy font-extrabold text-[7.14px] leading-[8.75px] flex  items-center  mx-auto">
+                                            $566
+                                        </div>
+                                    </div>
+                                </div>
+
+                                {/* row-3 */}
+                                {/* item */}
+                                <div className="border-[0.92px] border-[#6D6D6D]  rounded-[1.94px] px-[5px] py-[3px] bg-[rgba(217,217,217,0.04)]">
+                                    <div className=" flex justify-center relative ">
+                                        <div className="absolute -top-[10px] px-[7.5px] py-[2.5px]  text-[#323232] font-semibold text-[5.44px] leading-[8.17px] text-center bg-[#9E9E9E] rounded-[1.29px]">
+                                            pineapple
+                                        </div>
+                                    </div>
+
+                                    <div className="flex justify-center mt-[14px]">
+                                        <img src={pineapple} alt="pineapple" className="w-[71.23px] h-[64.42px]" />
+                                    </div>
+
+                                    <div className="mt-[5px] bg-[#9E9E9E] flex p-[1.22px] rounded-[1.94px]">
+                                        <button className="text-[4.46px] leading-[6.7px] font-poppins font-semibold italic px-1 py-[2.5px] bg-[#323232] rounded-[1.94px] text-[#9E9E9E]">
+                                            Add To Cart
+                                        </button>
+                                        <div className="text-[#323232] font-gilroy font-extrabold text-[7.14px] leading-[8.75px] flex  items-center  mx-auto">
+                                            $566
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div className="border-[0.92px] border-[#6D6D6D]  rounded-[1.94px] px-[5px] py-[3px] bg-[rgba(217,217,217,0.04)]">
+                                    <div className=" flex justify-center relative ">
+                                        <div className="absolute -top-[10px] px-[7.5px] py-[2.5px]  text-[#323232] font-semibold text-[5.44px] leading-[8.17px] text-center bg-[#9E9E9E] rounded-[1.29px]">
+                                            pineapple
+                                        </div>
+                                    </div>
+
+                                    <div className="flex justify-center mt-[14px]">
+                                        <img src={pineapple} alt="pineapple" className="w-[71.23px] h-[64.42px]" />
+                                    </div>
+
+                                    <div className="mt-[5px] bg-[#9E9E9E] flex p-[1.22px] rounded-[1.94px]">
+                                        <button className="text-[4.46px] leading-[6.7px] font-poppins font-semibold italic px-1 py-[2.5px] bg-[#323232] rounded-[1.94px] text-[#9E9E9E]">
+                                            Add To Cart
+                                        </button>
+                                        <div className="text-[#323232] font-gilroy font-extrabold text-[7.14px] leading-[8.75px] flex  items-center  mx-auto">
+                                            $566
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div className="border-[0.92px] border-[#6D6D6D]  rounded-[1.94px] px-[5px] py-[3px] bg-[rgba(217,217,217,0.04)]">
+                                    <div className=" flex justify-center relative ">
+                                        <div className="absolute -top-[10px] px-[7.5px] py-[2.5px]  text-[#323232] font-semibold text-[5.44px] leading-[8.17px] text-center bg-[#9E9E9E] rounded-[1.29px]">
+                                            pineapple
+                                        </div>
+                                    </div>
+
+                                    <div className="flex justify-center mt-[14px]">
+                                        <img src={pineapple} alt="pineapple" className="w-[71.23px] h-[64.42px]" />
+                                    </div>
+
+                                    <div className="mt-[5px] bg-[#9E9E9E] flex p-[1.22px] rounded-[1.94px]">
+                                        <button className="text-[4.46px] leading-[6.7px] font-poppins font-semibold italic px-1 py-[2.5px] bg-[#323232] rounded-[1.94px] text-[#9E9E9E]">
+                                            Add To Cart
+                                        </button>
+                                        <div className="text-[#323232] font-gilroy font-extrabold text-[7.14px] leading-[8.75px] flex  items-center  mx-auto">
+                                            $566
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div className="border-[0.92px] border-[#6D6D6D]  rounded-[1.94px] px-[5px] py-[3px] bg-[rgba(217,217,217,0.04)]">
+                                    <div className=" flex justify-center relative ">
+                                        <div className="absolute -top-[10px] px-[7.5px] py-[2.5px]  text-[#323232] font-semibold text-[5.44px] leading-[8.17px] text-center bg-[#9E9E9E] rounded-[1.29px]">
+                                            pineapple
+                                        </div>
+                                    </div>
+
+                                    <div className="flex justify-center mt-[14px]">
+                                        <img src={pineapple} alt="pineapple" className="w-[71.23px] h-[64.42px]" />
+                                    </div>
+
+                                    <div className="mt-[5px] bg-[#9E9E9E] flex p-[1.22px] rounded-[1.94px]">
+                                        <button className="text-[4.46px] leading-[6.7px] font-poppins font-semibold italic px-1 py-[2.5px] bg-[#323232] rounded-[1.94px] text-[#9E9E9E]">
+                                            Add To Cart
+                                        </button>
+                                        <div className="text-[#323232] font-gilroy font-extrabold text-[7.14px] leading-[8.75px] flex  items-center  mx-auto">
+                                            $566
+                                        </div>
+                                    </div>
+                                </div>
+
+                                {/* item */}
+                                <div className="border-[0.92px] border-[#6D6D6D]  rounded-[1.94px] px-[5px] py-[3px] bg-[rgba(217,217,217,0.04)]">
+                                    <div className=" flex justify-center relative ">
+                                        <div className="absolute -top-[10px] px-[7.5px] py-[2.5px]  text-[#323232] font-semibold text-[5.44px] leading-[8.17px] text-center bg-[#9E9E9E] rounded-[1.29px]">
+                                            pineapple
+                                        </div>
+                                    </div>
+
+                                    <div className="flex justify-center mt-[14px]">
+                                        <img src={pineapple} alt="pineapple" className="w-[71.23px] h-[64.42px]" />
+                                    </div>
+
+                                    <div className="mt-[5px] bg-[#9E9E9E] flex p-[1.22px] rounded-[1.94px]">
+                                        <button className="text-[4.46px] leading-[6.7px] font-poppins font-semibold italic px-1 py-[2.5px] bg-[#323232] rounded-[1.94px] text-[#9E9E9E]">
+                                            Add To Cart
+                                        </button>
+                                        <div className="text-[#323232] font-gilroy font-extrabold text-[7.14px] leading-[8.75px] flex  items-center  mx-auto">
+                                            $566
+                                        </div>
+                                    </div>
+                                </div>
+
+                                {/* row-4 */}
+                                {/* item */}
+                                <div className="border-[0.92px] border-[#6D6D6D]  rounded-[1.94px] px-[5px] py-[3px] bg-[rgba(217,217,217,0.04)]">
+                                    <div className=" flex justify-center relative ">
+                                        <div className="absolute -top-[10px] px-[7.5px] py-[2.5px]  text-[#323232] font-semibold text-[5.44px] leading-[8.17px] text-center bg-[#9E9E9E] rounded-[1.29px]">
+                                            pineapple
+                                        </div>
+                                    </div>
+
+                                    <div className="flex justify-center mt-[14px]">
+                                        <img src={pineapple} alt="pineapple" className="w-[71.23px] h-[64.42px]" />
+                                    </div>
+
+                                    <div className="mt-[5px] bg-[#9E9E9E] flex p-[1.22px] rounded-[1.94px]">
+                                        <button className="text-[4.46px] leading-[6.7px] font-poppins font-semibold italic px-1 py-[2.5px] bg-[#323232] rounded-[1.94px] text-[#9E9E9E]">
+                                            Add To Cart
+                                        </button>
+                                        <div className="text-[#323232] font-gilroy font-extrabold text-[7.14px] leading-[8.75px] flex  items-center  mx-auto">
+                                            $566
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div className="border-[0.92px] border-[#6D6D6D]  rounded-[1.94px] px-[5px] py-[3px] bg-[rgba(217,217,217,0.04)]">
+                                    <div className=" flex justify-center relative ">
+                                        <div className="absolute -top-[10px] px-[7.5px] py-[2.5px]  text-[#323232] font-semibold text-[5.44px] leading-[8.17px] text-center bg-[#9E9E9E] rounded-[1.29px]">
+                                            pineapple
+                                        </div>
+                                    </div>
+
+                                    <div className="flex justify-center mt-[14px]">
+                                        <img src={pineapple} alt="pineapple" className="w-[71.23px] h-[64.42px]" />
+                                    </div>
+
+                                    <div className="mt-[5px] bg-[#9E9E9E] flex p-[1.22px] rounded-[1.94px]">
+                                        <button className="text-[4.46px] leading-[6.7px] font-poppins font-semibold italic px-1 py-[2.5px] bg-[#323232] rounded-[1.94px] text-[#9E9E9E]">
+                                            Add To Cart
+                                        </button>
+                                        <div className="text-[#323232] font-gilroy font-extrabold text-[7.14px] leading-[8.75px] flex  items-center  mx-auto">
+                                            $566
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div className="border-[0.92px] border-[#6D6D6D]  rounded-[1.94px] px-[5px] py-[3px] bg-[rgba(217,217,217,0.04)]">
+                                    <div className=" flex justify-center relative ">
+                                        <div className="absolute -top-[10px] px-[7.5px] py-[2.5px]  text-[#323232] font-semibold text-[5.44px] leading-[8.17px] text-center bg-[#9E9E9E] rounded-[1.29px]">
+                                            pineapple
+                                        </div>
+                                    </div>
+
+                                    <div className="flex justify-center mt-[14px]">
+                                        <img src={pineapple} alt="pineapple" className="w-[71.23px] h-[64.42px]" />
+                                    </div>
+
+                                    <div className="mt-[5px] bg-[#9E9E9E] flex p-[1.22px] rounded-[1.94px]">
+                                        <button className="text-[4.46px] leading-[6.7px] font-poppins font-semibold italic px-1 py-[2.5px] bg-[#323232] rounded-[1.94px] text-[#9E9E9E]">
+                                            Add To Cart
+                                        </button>
+                                        <div className="text-[#323232] font-gilroy font-extrabold text-[7.14px] leading-[8.75px] flex  items-center  mx-auto">
+                                            $566
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div className="border-[0.92px] border-[#6D6D6D]  rounded-[1.94px] px-[5px] py-[3px] bg-[rgba(217,217,217,0.04)]">
+                                    <div className=" flex justify-center relative ">
+                                        <div className="absolute -top-[10px] px-[7.5px] py-[2.5px]  text-[#323232] font-semibold text-[5.44px] leading-[8.17px] text-center bg-[#9E9E9E] rounded-[1.29px]">
+                                            pineapple
+                                        </div>
+                                    </div>
+
+                                    <div className="flex justify-center mt-[14px]">
+                                        <img src={pineapple} alt="pineapple" className="w-[71.23px] h-[64.42px]" />
+                                    </div>
+
+                                    <div className="mt-[5px] bg-[#9E9E9E] flex p-[1.22px] rounded-[1.94px]">
+                                        <button className="text-[4.46px] leading-[6.7px] font-poppins font-semibold italic px-1 py-[2.5px] bg-[#323232] rounded-[1.94px] text-[#9E9E9E]">
+                                            Add To Cart
+                                        </button>
+                                        <div className="text-[#323232] font-gilroy font-extrabold text-[7.14px] leading-[8.75px] flex  items-center  mx-auto">
+                                            $566
+                                        </div>
+                                    </div>
+                                </div>
+
+                                {/* item */}
+                                <div className="border-[0.92px] border-[#6D6D6D]  rounded-[1.94px] px-[5px] py-[3px] bg-[rgba(217,217,217,0.04)]">
+                                    <div className=" flex justify-center relative ">
+                                        <div className="absolute -top-[10px] px-[7.5px] py-[2.5px]  text-[#323232] font-semibold text-[5.44px] leading-[8.17px] text-center bg-[#9E9E9E] rounded-[1.29px]">
+                                            pineapple
+                                        </div>
+                                    </div>
+
+                                    <div className="flex justify-center mt-[14px]">
+                                        <img src={pineapple} alt="pineapple" className="w-[71.23px] h-[64.42px]" />
+                                    </div>
+
+                                    <div className="mt-[5px] bg-[#9E9E9E] flex p-[1.22px] rounded-[1.94px]">
+                                        <button className="text-[4.46px] leading-[6.7px] font-poppins font-semibold italic px-1 py-[2.5px] bg-[#323232] rounded-[1.94px] text-[#9E9E9E]">
+                                            Add To Cart
+                                        </button>
+                                        <div className="text-[#323232] font-gilroy font-extrabold text-[7.14px] leading-[8.75px] flex  items-center  mx-auto">
+                                            $566
+                                        </div>
+                                    </div>
+                                </div>
+
+                                {/* row-5 */}
+                                {/* item */}
+                                <div className="border-[0.92px] border-[#6D6D6D]  rounded-[1.94px] px-[5px] py-[3px] bg-[rgba(217,217,217,0.04)]">
+                                    <div className=" flex justify-center relative ">
+                                        <div className="absolute -top-[10px] px-[7.5px] py-[2.5px]  text-[#323232] font-semibold text-[5.44px] leading-[8.17px] text-center bg-[#9E9E9E] rounded-[1.29px]">
+                                            pineapple
+                                        </div>
+                                    </div>
+
+                                    <div className="flex justify-center mt-[14px]">
+                                        <img src={pineapple} alt="pineapple" className="w-[71.23px] h-[64.42px]" />
+                                    </div>
+
+                                    <div className="mt-[5px] bg-[#9E9E9E] flex p-[1.22px] rounded-[1.94px]">
+                                        <button className="text-[4.46px] leading-[6.7px] font-poppins font-semibold italic px-1 py-[2.5px] bg-[#323232] rounded-[1.94px] text-[#9E9E9E]">
+                                            Add To Cart
+                                        </button>
+                                        <div className="text-[#323232] font-gilroy font-extrabold text-[7.14px] leading-[8.75px] flex  items-center  mx-auto">
+                                            $566
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div className="border-[0.92px] border-[#6D6D6D]  rounded-[1.94px] px-[5px] py-[3px] bg-[rgba(217,217,217,0.04)]">
+                                    <div className=" flex justify-center relative ">
+                                        <div className="absolute -top-[10px] px-[7.5px] py-[2.5px]  text-[#323232] font-semibold text-[5.44px] leading-[8.17px] text-center bg-[#9E9E9E] rounded-[1.29px]">
+                                            pineapple
+                                        </div>
+                                    </div>
+
+                                    <div className="flex justify-center mt-[14px]">
+                                        <img src={pineapple} alt="pineapple" className="w-[71.23px] h-[64.42px]" />
+                                    </div>
+
+                                    <div className="mt-[5px] bg-[#9E9E9E] flex p-[1.22px] rounded-[1.94px]">
+                                        <button className="text-[4.46px] leading-[6.7px] font-poppins font-semibold italic px-1 py-[2.5px] bg-[#323232] rounded-[1.94px] text-[#9E9E9E]">
+                                            Add To Cart
+                                        </button>
+                                        <div className="text-[#323232] font-gilroy font-extrabold text-[7.14px] leading-[8.75px] flex  items-center  mx-auto">
+                                            $566
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div className="border-[0.92px] border-[#6D6D6D]  rounded-[1.94px] px-[5px] py-[3px] bg-[rgba(217,217,217,0.04)]">
+                                    <div className=" flex justify-center relative ">
+                                        <div className="absolute -top-[10px] px-[7.5px] py-[2.5px]  text-[#323232] font-semibold text-[5.44px] leading-[8.17px] text-center bg-[#9E9E9E] rounded-[1.29px]">
+                                            pineapple
+                                        </div>
+                                    </div>
+
+                                    <div className="flex justify-center mt-[14px]">
+                                        <img src={pineapple} alt="pineapple" className="w-[71.23px] h-[64.42px]" />
+                                    </div>
+
+                                    <div className="mt-[5px] bg-[#9E9E9E] flex p-[1.22px] rounded-[1.94px]">
+                                        <button className="text-[4.46px] leading-[6.7px] font-poppins font-semibold italic px-1 py-[2.5px] bg-[#323232] rounded-[1.94px] text-[#9E9E9E]">
+                                            Add To Cart
+                                        </button>
+                                        <div className="text-[#323232] font-gilroy font-extrabold text-[7.14px] leading-[8.75px] flex  items-center  mx-auto">
+                                            $566
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div className="border-[0.92px] border-[#6D6D6D]  rounded-[1.94px] px-[5px] py-[3px] bg-[rgba(217,217,217,0.04)]">
+                                    <div className=" flex justify-center relative ">
+                                        <div className="absolute -top-[10px] px-[7.5px] py-[2.5px]  text-[#323232] font-semibold text-[5.44px] leading-[8.17px] text-center bg-[#9E9E9E] rounded-[1.29px]">
+                                            pineapple
+                                        </div>
+                                    </div>
+
+                                    <div className="flex justify-center mt-[14px]">
+                                        <img src={pineapple} alt="pineapple" className="w-[71.23px] h-[64.42px]" />
+                                    </div>
+
+                                    <div className="mt-[5px] bg-[#9E9E9E] flex p-[1.22px] rounded-[1.94px]">
+                                        <button className="text-[4.46px] leading-[6.7px] font-poppins font-semibold italic px-1 py-[2.5px] bg-[#323232] rounded-[1.94px] text-[#9E9E9E]">
+                                            Add To Cart
+                                        </button>
+                                        <div className="text-[#323232] font-gilroy font-extrabold text-[7.14px] leading-[8.75px] flex  items-center  mx-auto">
+                                            $566
+                                        </div>
+                                    </div>
+                                </div>
+
+                                {/* item */}
+                                <div className="border-[0.92px] border-[#6D6D6D]  rounded-[1.94px] px-[5px] py-[3px] bg-[rgba(217,217,217,0.04)]">
+                                    <div className=" flex justify-center relative ">
+                                        <div className="absolute -top-[10px] px-[7.5px] py-[2.5px]  text-[#323232] font-semibold text-[5.44px] leading-[8.17px] text-center bg-[#9E9E9E] rounded-[1.29px]">
+                                            pineapple
+                                        </div>
+                                    </div>
+
+                                    <div className="flex justify-center mt-[14px]">
+                                        <img src={pineapple} alt="pineapple" className="w-[71.23px] h-[64.42px]" />
+                                    </div>
+
+                                    <div className="mt-[5px] bg-[#9E9E9E] flex p-[1.22px] rounded-[1.94px]">
+                                        <button className="text-[4.46px] leading-[6.7px] font-poppins font-semibold italic px-1 py-[2.5px] bg-[#323232] rounded-[1.94px] text-[#9E9E9E]">
+                                            Add To Cart
+                                        </button>
+                                        <div className="text-[#323232] font-gilroy font-extrabold text-[7.14px] leading-[8.75px] flex  items-center  mx-auto">
+                                            $566
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </section>
         </React.Fragment>
