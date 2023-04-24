@@ -7,12 +7,16 @@ export interface IItem {
     quantity: number;
 }
 
+export interface IHistory extends IItem {
+    type: string;
+}
+
 export interface IStore {
     bank_acc: number;
     cash: number;
     cart: IItem[];
     cart_total: number;
-    history: IItem[];
+    history: IHistory[];
     addToCart: (item: IItem) => void;
     removeFromCart: (item: IItem) => void;
     removeAllFromCart: (item: IItem) => void;

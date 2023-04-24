@@ -23,6 +23,18 @@ const useStore = create<IStore>((set) => ({
                 ],
                 cart_total: state.cart_total + item.price,
             }));
+
+            // set history
+            set((state) => ({
+                history: [
+                    {
+                        ...item,
+                        quantity: 1,
+                        type: "add",
+                    },
+                    ...state.history,
+                ],
+            }));
             return;
         } else {
             // if item is in cart
@@ -39,6 +51,18 @@ const useStore = create<IStore>((set) => ({
                 }),
                 cart_total: state.cart_total + item.price,
             }));
+
+            // set history
+            set((state) => ({
+                history: [
+                    {
+                        ...item,
+                        quantity: 1,
+                        type: "add",
+                    },
+                    ...state.history,
+                ],
+            }));
         }
     },
 
@@ -51,20 +75,44 @@ const useStore = create<IStore>((set) => ({
                 set((state) => ({
                     cart: state.cart.filter((i) => i.id !== item.id),
                 }));
+
+                // set history
+                set((state) => ({
+                    history: [
+                        {
+                            ...item,
+                            quantity: 1,
+                            type: "remove",
+                        },
+                        ...state.history,
+                    ],
+                }));
             }
 
             set((state) => ({
                 cart: state.cart.map((i) => {
-                        if (i.id === item.id) {
-                            return {
-                                ...i,
-                                quantity: i.quantity - 1,
-                            };
-                        } else {
-                            return i;
-                        }
+                    if (i.id === item.id) {
+                        return {
+                            ...i,
+                            quantity: i.quantity - 1,
+                        };
+                    } else {
+                        return i;
+                    }
                 }),
                 cart_total: state.cart_total - item.price,
+            }));
+
+            // set history
+            set((state) => ({
+                history: [
+                    {
+                        ...item,
+                        quantity: 1,
+                        type: "remove",
+                    },
+                    ...state.history,
+                ],
             }));
         }
     },
@@ -74,6 +122,18 @@ const useStore = create<IStore>((set) => ({
         set((state) => ({
             cart: state.cart.filter((i) => i.id !== item.id),
             cart_total: state.cart_total - item.price * item.quantity,
+        }));
+
+        // set history
+        set((state) => ({
+            history: [
+                {
+                    ...item,
+                    quantity: item.quantity,
+                    type: "remove",
+                },
+                ...state.history,
+            ],
         }));
     },
 }));

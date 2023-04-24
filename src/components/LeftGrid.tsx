@@ -1,7 +1,7 @@
 import useStore from "../app/store";
 
 const LeftGrid: React.FC = () => {
-    const { bank_acc, cash, cart, cart_total, removeAllFromCart, removeFromCart, addToCart } = useStore((state) => state);
+    const { bank_acc, cash, cart, cart_total, history, removeAllFromCart, removeFromCart, addToCart } = useStore((state) => state);
 
     //
     return (
@@ -176,7 +176,15 @@ const LeftGrid: React.FC = () => {
                     </div>
 
                     <div className="font-poppins font-bold text-[7px] leading-[11px] text-[#FFFFFF70]">
-                        <p className="opacity-[0.88]">
+                        {history.slice(0, 3).map((item, index) => (
+                            <p className={`${index === 0 ? "opacity-[0.88]" : index === 1 ? "opacity-[0.27]" : "opacity-[0.06]"} `} key={index}>
+                                <span className={`${item.type === "add" ? "text-[#35FF93]" : "text-[#FF3559]"} `}>
+                                    {item.type === "add" ? "+" : "-"}$566
+                                </span>{" "}
+                                (Item {item.type === "add" ? "Added" : "Deteled"})
+                            </p>
+                        ))}
+                        {/* <p className="opacity-[0.88]">
                             <span className="text-[#FF3559]">-$566</span> (Item Deleted)
                         </p>
                         <p className="opacity-[0.27]">
@@ -184,7 +192,7 @@ const LeftGrid: React.FC = () => {
                         </p>
                         <p className="opacity-[0.06]">
                             <span className="text-[#35FF93]">+$566</span> (Item Added)
-                        </p>
+                        </p> */}
                     </div>
                 </div>
 
