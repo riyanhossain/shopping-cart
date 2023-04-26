@@ -6,7 +6,7 @@ import RightGrid from "./components/RightGrid";
 const App: React.FC = () => {
     return (
         <React.Fragment>
-            <main className="px-2  w-full xl:w-[80%] max-w-[1920px] mx-auto overflow-hidden">
+            <main className="px-2  w-full xl:w-[70%] max-w-[1920px] mx-auto overflow-hidden">
                 <section className="my-[22px]   bg py-[22px] px-5 xl:px-[52px] rounded-[10px] relative">
                     {/* white elispe  */}
                     <div className="w-[187px] h-[187px] rounded-full bg-[rgba(255,255,255,0.25)] blur-[119.5px] absolute -left-[84px] -top-[149px]"></div>
@@ -29,7 +29,7 @@ const App: React.FC = () => {
                     </div>
 
                     {/* grid */}
-                    <div className="grid grid-cols-1  xl:grid-cols-[369.49px_1fr] gap-[56px] mt-[26px]">
+                    <div className="grid grid-cols-1  xl:grid-cols-[310px_1fr] gap-[56px] mt-[26px]">
                         {/* left */}
                         <LeftGrid />
 
