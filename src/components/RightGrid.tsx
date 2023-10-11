@@ -3,10 +3,19 @@ import useStore from "../app/store";
 import { data } from "../data/data";
 import isItemExistOnCart from "../lib/isItemExistOnCart";
 
+type Item = {
+    id: string;
+    name: string;
+    category: string;
+    price: number;
+    image: string;
+};
+
 const RightGrid: React.FC = () => {
     const [filter, setFilter] = useState<string>("Foods");
     const [search, setSearch] = useState<string>("");
-    const [items, setItems] = useState(data);
+    const [items, setItems] = useState<Item[]>(data);
+
     const { addToCart } = useStore((state) => state);
 
     const handleSearch = useCallback(() => {
